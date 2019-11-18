@@ -4,7 +4,7 @@ import math
 
 """Parameters"""
 pixels_to_mm = 0.1
-track_y = 30 #value to crop top and bottom of the image by
+track_y = 50 #value to crop top and bottom of the image by
 canny_lower_threshold = 150
 canny_upper_threshold = 300
 HL_rho = 1 #1
@@ -17,7 +17,7 @@ HLP_min_line_length = 10
 
 
 """Reference Image"""
-image = cv.imread('C:/Users/Amy/OneDrive/Documents/IGEN 330/ref images/image4.jpg', cv.IMREAD_GRAYSCALE)
+image = cv.imread('C:/Users/Amy/OneDrive/Documents/IGEN 330/ref images/image6.jpg', cv.IMREAD_GRAYSCALE)
 image_track = image[track_y: -track_y-30]
 
 
@@ -42,7 +42,7 @@ def vertical_crack(edges, threshold=1):
 def detect_circle(image_track_blur):
     ##circles
     # HoughCircles(image, method, dp (acc has same resolution of same size), minDist, param1, param2)
-    circles = cv.HoughCircles(edges, cv.HOUGH_GRADIENT, 1, 70, param1=50, param2=32, minRadius=0,
+    circles = cv.HoughCircles(edges, cv.HOUGH_GRADIENT, 1, 80, param1=50, param2=32, minRadius=0,
                               maxRadius=0)
 
     try:
